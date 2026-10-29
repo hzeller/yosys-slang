@@ -27,6 +27,9 @@ use_repo(slang_ext, "vendored-slang")
 
 # Not directly needed, but yosys pulls in some older versions of
 # these, that have compile issues on some platforms.
+#
+# This is in parallel to updating the dependencies on yosys directly
+# https://github.com/bazelbuild/bazel-central-registry/pull/11449
 bazel_dep(name = "flex", version = "2.6.4.bcr.10")
 bazel_dep(name = "readline", version = "8.3.bcr.3")
 
