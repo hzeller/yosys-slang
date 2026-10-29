@@ -2340,6 +2340,10 @@ public:
 			std::vector<BackendGraphBuilderBase::ParameterValue> params;
 			sym.body.visit(ast::makeVisitor(
 					[&](auto &, const ast::ParameterSymbol &symbol) {
+						// Local parameters are not settable externally
+						if (symbol.isLocalParam())
+							return;
+
 						auto converted = netlist.convert_const(symbol.getValue(), symbol.location);
 						if (converted) {
 							params.push_back({std::string(symbol.name), *converted,
