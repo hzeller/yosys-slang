@@ -24,3 +24,9 @@ slang_revision = use_repo_rule("//:dependency_support/slang_revision.bzl", "slan
 slang_revision(name = "slang_revision", path = "third_party/slang")
 slang_ext = use_extension("//:dependency_support/slang_ext.bzl", "vendored_slang_extension")
 use_repo(slang_ext, "vendored-slang")
+
+# Not directly needed, but yosys pulls in some older versions of
+# these, that have compile issues on some platforms.
+bazel_dep(name = "flex", version = "2.6.4.bcr.10")
+bazel_dep(name = "readline", version = "8.3.bcr.3")
+
