@@ -2,7 +2,7 @@
 
 module(
     name = "sv-elab",
-    version = "2026-10-13",
+    version = "2026-10-29",
     bazel_compatibility = [">=7.2.1"],
 )
 
